@@ -2,7 +2,7 @@ const nock = require('nock')
 const { getClosestTramwayAt } = require('./getClosestTramwayAt')
 
 describe('getClosestTramwayAt', () => {
-  beforeAll(mockTempsAttente)
+  beforeEach(mockTempsAttente)
 
   it('should return closest tramway in both directions at XBON', async () => {
     const codeLieu = 'XBON'

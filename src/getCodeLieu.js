@@ -1,14 +1,7 @@
-const fetch = require('node-fetch')
-const { API } = require('./const')
+const { fetchJSON } = require('./fetchJSON')
 
 async function getCodeLieu(trainStation) {
-  const response = await fetch(`${API}/arrets.json`)
-
-  if (!response.ok) {
-    throw Error('Service unavailable')
-  }
-
-  const arrets = await response.json()
+  const arrets = await fetchJSON(`arrets.json`)
 
   const arret = arrets.find(byLibelle(trainStation))
 

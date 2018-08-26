@@ -1,21 +1,13 @@
-const fetch = require('node-fetch')
+const { fetchJSON } = require('./fetchJSON')
 const { getTempsAsNumber } = require('./getTempsAsNumber')
-
 const {
-  API,
   TRAMWAY,
   TERMINUS_1,
   TERMINUS_2,
 } = require('./const')
 
 async function getClosestTramwayAt(codeLieu) {
-  const response = await fetch(`${API}/tempsattente.json/${codeLieu}`)
-
-  if (!response.ok) {
-    throw Error('Service unavailable')
-  }
-
-  const tempsAttente = await response.json()
+  const tempsAttente = await fetchJSON(`tempsattente.json/${codeLieu}`)
 
   const tramTempsAttente = tempsAttente.filter(byTramway)
 
