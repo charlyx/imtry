@@ -15,7 +15,7 @@ describe('getCodeLieu', () => {
     const hiddenStation = '9¾'
 
     try {
-      const codeLieu = await getCodeLieu(hiddenStation)
+      await getCodeLieu(hiddenStation)
     } catch (e) {
       expect(e).toEqual(Error(`Could not find station ${hiddenStation}`))
     }

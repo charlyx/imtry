@@ -10,11 +10,14 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-plugin-jest": "^21.22.0",
     "jest": "^23.5.0",
     "nock": "^9.6.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
     "node-fetch": "^2.2.0"
