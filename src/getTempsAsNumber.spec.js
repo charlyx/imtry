@@ -1,4 +1,4 @@
-const { getTempsAsNumber } = require('./getTempsAsNumber')
+import { getTempsAsNumber } from './getTempsAsNumber'
 
 describe('getTempsAsNumber', () => {
   it('should return number of minutes', () => {

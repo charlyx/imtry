@@ -1,7 +1,7 @@
-const fetch = require('node-fetch')
-const { API } = require('./const')
+import fetch from 'node-fetch'
+import { API } from './const'
 
-async function fetchJSON(resource) {
+export async function fetchJSON(resource) {
   const response = await fetch(`${API}/${resource}`)
 
   if (!response.ok) {
@@ -10,5 +10,3 @@ async function fetchJSON(resource) {
 
   return response.json()
 }
-
-module.exports = { fetchJSON }

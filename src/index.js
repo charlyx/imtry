@@ -1,10 +1,8 @@
-const { getCodeLieu } = require('./getCodeLieu')
-const { getClosestTramwayAt } = require('./getClosestTramwayAt')
+import { getCodeLieu } from './getCodeLieu'
+import { getClosestTramwayAt } from './getClosestTramwayAt'
 
-async function getClosestTramwayFrom(libelle) {
+export async function getClosestTramwayFrom(libelle) {
   const codeLieu = await getCodeLieu(libelle)
 
   return getClosestTramwayAt(codeLieu)
 }
-
-module.exports = { getClosestTramwayFrom }

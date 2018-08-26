@@ -1,6 +1,6 @@
-const nock = require('nock')
-const { API } = require('./const')
-const { getCodeLieu } = require('./getCodeLieu')
+import nock from 'nock'
+import { API } from './const'
+import { getCodeLieu } from './getCodeLieu'
 
 describe('getCodeLieu', () => {
   beforeEach(mockArrets)
@@ -24,14 +24,20 @@ describe('getCodeLieu', () => {
 })
 
 function mockArrets() {
-  /* eslint-disable array-element-newline */
   nock(API)
     .get('/arrets.json')
     .reply(200, [
-      {"codeLieu":"XBON","libelle":"Croix Bonneau","distance":null,"ligne":[{"numLigne":"1"},{"numLigne":"11"},{"numLigne":"LU"}]},
+      {"codeLieu":"XBON","libelle":"Croix Bonneau","distance":null,"ligne":[
+        {"numLigne":"1"},
+        {"numLigne":"11"},
+        {"numLigne":"LU"}
+      ]},
       {"codeLieu":"XJAN","libelle":"Croix Jeannette","distance":null,"ligne":[{"numLigne":"36"}]},
       {"codeLieu":"XTRU","libelle":"Croix Truin","distance":null,"ligne":[{"numLigne":"78"}]},
-      {"codeLieu":"XREZ","libelle":"Croix de Rezé","distance":null,"ligne":[{"numLigne":"30"},{"numLigne":"98"}]},
+      {"codeLieu":"XREZ","libelle":"Croix de Rezé","distance":null,"ligne":[
+        {"numLigne":"30"},
+        {"numLigne":"98"}
+      ]},
       {"codeLieu":"CRME","libelle":"Crémetterie","distance":null,"ligne":[{"numLigne":"23"}]},
     ])
 }

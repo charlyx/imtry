@@ -1,6 +1,6 @@
-exports.API = 'http://open_preprod.tan.fr/ewp'
+export const API = 'http://open_preprod.tan.fr/ewp'
 
-exports.TRAMWAY = 1
+export const TRAMWAY = 1
 
-exports.TERMINUS_1 = 1
-exports.TERMINUS_2 = 2
+export const TERMINUS_1 = 1
+export const TERMINUS_2 = 2

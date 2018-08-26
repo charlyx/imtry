@@ -1,5 +1,5 @@
-const nock = require('nock')
-const { getClosestTramwayAt } = require('./getClosestTramwayAt')
+import nock from 'nock'
+import { getClosestTramwayAt } from './getClosestTramwayAt'
 
 describe('getClosestTramwayAt', () => {
   beforeEach(mockTempsAttente)

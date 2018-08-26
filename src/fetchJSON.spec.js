@@ -1,5 +1,5 @@
-const fetch = require('node-fetch')
-const { fetchJSON } = require('./fetchJSON')
+import fetch from 'node-fetch'
+import { fetchJSON } from './fetchJSON'
 
 describe('fetchJSON', () => {
   it('should throw an error saying "Service unavailable"', async () => {
@@ -14,13 +14,11 @@ describe('fetchJSON', () => {
   })
 
   it('should return json', async () => {
-    // eslint-disable-next-line newline-after-var
-    const someJson = { some: 'json' }
-    fetch.mockReturnValue({ ok: true, json: () => someJson })
+    fetch.mockReturnValue({ ok: true, json: () => ({ some: 'json' }) })
 
     const result = await fetchJSON('someResource')
 
-    expect(result).toEqual(someJson)
+    expect(result).toEqual({ some: 'json' })
   })
 })
 

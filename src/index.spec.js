@@ -1,6 +1,6 @@
-const { getClosestTramwayFrom } = require('.')
-const { getCodeLieu } = require('./getCodeLieu')
-const { getClosestTramwayAt } = require('./getClosestTramwayAt')
+import { getClosestTramwayFrom } from '.'
+import { getCodeLieu } from './getCodeLieu'
+import { getClosestTramwayAt } from './getClosestTramwayAt'
 
 describe('getClosestTramwayFrom', () => {
     beforeEach(async () => {

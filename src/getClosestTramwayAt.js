@@ -1,12 +1,12 @@
-const { fetchJSON } = require('./fetchJSON')
-const { getTempsAsNumber } = require('./getTempsAsNumber')
-const {
+import { fetchJSON } from './fetchJSON'
+import { getTempsAsNumber } from './getTempsAsNumber'
+import {
   TRAMWAY,
   TERMINUS_1,
   TERMINUS_2,
-} = require('./const')
+} from './const'
 
-async function getClosestTramwayAt(codeLieu) {
+export async function getClosestTramwayAt(codeLieu) {
   const tempsAttente = await fetchJSON(`tempsattente.json/${codeLieu}`)
 
   const tramTempsAttente = tempsAttente.filter(byTramway)
@@ -40,5 +40,3 @@ function byTemps(a, b) {
 
   return tempsA - tempsB
 }
-
-module.exports = { getClosestTramwayAt }

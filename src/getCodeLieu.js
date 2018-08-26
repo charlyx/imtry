@@ -1,6 +1,6 @@
-const { fetchJSON } = require('./fetchJSON')
+import { fetchJSON } from './fetchJSON'
 
-async function getCodeLieu(trainStation) {
+export async function getCodeLieu(trainStation) {
   const arrets = await fetchJSON(`arrets.json`)
 
   const arret = arrets.find(byLibelle(trainStation))
@@ -15,5 +15,3 @@ async function getCodeLieu(trainStation) {
 function byLibelle(expectedLibelle) {
   return ({ libelle }) => libelle === expectedLibelle
 }
-
-module.exports = { getCodeLieu }

@@ -1,22 +1,24 @@
 module.exports = {
     "env": {
-        "browser": true,
-        "commonjs": true,
         "es6": true,
-        "jest/globals": true
+        "node": true
     },
     "extends": [
         "eslint:recommended",
-        "plugin:jest/recommended"
+        "plugin:jest/recommended",
     ],
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
     "plugins": ["jest"],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
     "rules": {
         "accessor-pairs": "error",
         "array-bracket-newline": "error",
-        "array-bracket-spacing": "error",
+        "array-bracket-spacing": [
+            "error",
+            "never"
+        ],
         "array-callback-return": "error",
         "array-element-newline": "error",
         "arrow-body-style": "error",
@@ -106,7 +108,7 @@ module.exports = {
         "max-lines-per-function": "error",
         "max-nested-callbacks": "error",
         "max-params": "error",
-        "max-statements": "off",
+        "max-statements": "error",
         "max-statements-per-line": "error",
         "multiline-comment-style": "error",
         "multiline-ternary": "error",
@@ -193,7 +195,7 @@ module.exports = {
         "no-template-curly-in-string": "error",
         "no-ternary": "error",
         "no-throw-literal": "error",
-        "no-trailing-spaces": "off",
+        "no-trailing-spaces": "error",
         "no-undef-init": "error",
         "no-undefined": "error",
         "no-underscore-dangle": "error",
@@ -246,19 +248,22 @@ module.exports = {
         "semi": "off",
         "semi-spacing": "error",
         "semi-style": "error",
-        "sort-imports": "error",
+        "sort-imports": "off",
         "sort-keys": "off",
         "sort-vars": "error",
         "space-before-blocks": "error",
         "space-before-function-paren": "off",
-        "space-in-parens": "off",
-        "space-infix-ops": "error",
-        "space-unary-ops": "error",
-        "spaced-comment": "error",
-        "strict": [
+        "space-in-parens": [
             "error",
             "never"
         ],
+        "space-infix-ops": "error",
+        "space-unary-ops": "error",
+        "spaced-comment": [
+            "error",
+            "always"
+        ],
+        "strict": "error",
         "switch-colon-spacing": "error",
         "symbol-description": "error",
         "template-curly-spacing": [

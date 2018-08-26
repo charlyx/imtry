@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "build": "babel src -d lib"
   },
   "dependencies": {
