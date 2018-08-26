@@ -1,0 +1,18 @@
+{
+  "name": "imtry",
+  "version": "1.0.0",
+  "description": "Is My Tram Ready Yet?",
+  "main": "index.js",
+  "repository": "git@github.com:charlyx/imtry.git",
+  "author": "Charles-Henri Guérin <charleshenri.guerin@icloud.com>",
+  "contributors": [
+    "Kseniia Saievych <saievych.ksenia@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
