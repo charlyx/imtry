@@ -4,30 +4,23 @@
   "description": "Is My Tram Ready Yet?",
   "main": "index.js",
   "repository": "git@github.com:charlyx/imtry.git",
-  "author": "Charles-Henri Guérin <charleshenri.guerin@icloud.com>",
+  "author": "Charles-Henri Guérin <charles-henri.guerin@zenika.com>",
   "contributors": [
     "Kseniia Saievych <saievych.ksenia@gmail.com>"
   ],
   "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-core": "^7.0.0-0",
-    "babel-jest": "^23.4.2",
-    "eslint": "^5.4.0",
-    "eslint-plugin-jest": "^21.22.0",
-    "jest": "^23.5.0",
-    "nock": "^9.6.1",
-    "regenerator-runtime": "^0.12.1"
+    "lerna": "^3.2.1"
   },
   "scripts": {
-    "test": "jest",
-    "lint": "eslint src",
-    "build": "babel src -d lib"
-  },
-  "dependencies": {
-    "node-fetch": "^2.2.0"
+    "build": "lerna run --stream --parallel build",
+    "lint": "lerna run --stream --parallel lint",
+    "test": "lerna run --stream --parallel test"
   }
 }
