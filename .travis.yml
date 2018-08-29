@@ -17,3 +17,5 @@ deploy:
   provider: script
   script: cd packages/imtry-assistant/functions && firebase --project imtry-9bd92 --token $FIREBASE_TOKEN deploy --only functions:dialogflowFirebaseFulfillment
   skip_cleanup: true
+  on:
+    branch: master
