@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6"
+  - '6'
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.9.4
@@ -10,3 +10,8 @@ script:
   - npm run lint
   - npm run build
   - npm test
+
+deploy:
+  provider: firebase
+  token:
+    secure: vWqPrWUDb2Q/cxBRlo3r7jnvS5lskhpj6pRPMnyZD80P027HizI1/Q33hs/SsHflxvsq/XebUxP1dIA5XU41bF4FWeZLYQPpgmOwRSXMtYLsmc7Lhr4yEWNwPulsp5lIDYG2zWSH/n/qWfgXmHxMQgFAgLE4Hff9mJP4w+7GW1azpPaL/UrNg6eabgiZ3SNMXaYDRo/adfjjvWP5S0B5KL6f3+PyRAkbquo77+6XmldacooQTFk8QFx1h1Oy1thZCpefk0Qp6c/uL4lpH1VfVrTRV1eHNZnCqZGRqwramiYix1aCBc9ioHG7UoUcFWujKG7IRLdCzuYH5wAtXBbh2GErgk8vO4iCLGJi60pZsztBT/VimB5mRFQ2i5hHxJ1PWJgKGqaVPyfrRHEtzwxfwNwmkAY5yXS4aup7djvRsJG3i9C+0PzBK8H0L+2/j7XPGtGVYrxnlRS91l/icmOyspbpjwRjcnViw0E9hjANMqvVP8sdBKHBGsdDZonsDkZJH3reMtSotoXfc5fvhUAVkn9hPLZEkt1cB3MSsYc5RXK43fmDRLEDRMMo+SH2KsMmL3XDkfMOw+f+o8s2BWcQiaixRAH46+D02Twt+XxOFLxa8f6UobSJVYYL1sehTsM4qJOVNvw6Lz8CRxz28NmKhGtx/nWJQjPpQveHc0DIU7E=

@@ -1,0 +1,31 @@
+{
+  "name": "imtry-assistant",
+  "version": "1.0.0",
+  "description": "IMTRY Assistant",
+  "main": "index.js",
+  "repository": "git@github.com:charlyx/imtry.git",
+  "author": "Charles-Henri Guérin <charleshenri.guerin@icloud.com>",
+  "contributors": [
+    "Kseniia Saievych <saievych.ksenia@gmail.com>"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@firebase/app-types": "0.x",
+    "actions-on-google": "^2.3.0",
+    "dialogflow-fulfillment": "^0.5.0",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  }
+}
