@@ -2,7 +2,7 @@
   "name": "imtry-assistant",
   "version": "1.0.0",
   "description": "IMTRY Assistant",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "git@github.com:charlyx/imtry.git",
   "author": "Charles-Henri Guérin <charleshenri.guerin@icloud.com>",
   "contributors": [
