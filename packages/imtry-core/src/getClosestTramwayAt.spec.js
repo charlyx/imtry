@@ -1,4 +1,5 @@
 import nock from 'nock'
+import { API } from './const'
 import { getClosestTramwayAt } from './getClosestTramwayAt'
 
 describe('getClosestTramwayAt', () => {
@@ -14,8 +15,8 @@ describe('getClosestTramwayAt', () => {
 })
 
 function mockTempsAttente() {
-  nock('http://open_preprod.tan.fr')
-    .get('/ewp/tempsattente.json/XBON')
+  nock(API)
+    .get('/tempsattente.json/XBON')
     .reply(200, [
       {"sens":1,"terminus":"Jamet","infotrafic":true,"temps":"3 mn","dernierDepart":"false","tempsReel":"false","ligne":{"numLigne":"1","typeLigne":1},"arret":{"codeArret":"XBON2"}},
       {"sens":2,"terminus":"Perray","infotrafic":true,"temps":"4 mn 30","dernierDepart":"false","tempsReel":"true","ligne":{"numLigne":"11","typeLigne":3},"arret":{"codeArret":"XBON4"}},
