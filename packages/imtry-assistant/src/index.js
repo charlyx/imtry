@@ -16,11 +16,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 function ClosestTramHandler(agent) {
   const { station } = agent.parameters
   return getClosestTramwayFrom(station).then(tramways => {
-    const responses = Object.keys(tramways).map(direction => `
-      Le prochain tramway au départ de ${station}
-      et en direction de ${direction}
-      partira dans ${tramways[direction]} minutes
-    `)
+    const responses = Object.keys(tramways).map(direction => {
+      const temps = tramways[direction]
+      const message = (temps > 0) ? `partira dans ${temps} minutes` : 'va bientôt partir'
+
+      return `Le prochain tramway au départ de ${station} et en direction de ${direction} ${message}`
+    })
 
     responses.forEach(response => agent.add(response))
     return
