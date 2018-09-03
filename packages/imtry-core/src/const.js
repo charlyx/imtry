@@ -1,4 +1,4 @@
-export const API = 'http://open_preprod.tan.fr/ewp'
+export const API = 'http://open.tan.fr/ewp'
 
 export const TRAMWAY = 1
 
