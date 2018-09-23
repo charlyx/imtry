@@ -16,5 +16,5 @@ export async function getCodeLieu(trainStation) {
 }
 
 function byLibelle(expectedLibelle) {
-  return ({ libelle }) => libelle === expectedLibelle
+  return ({ libelle }) => libelle.toLowerCase() === expectedLibelle.toLowerCase()
 }
