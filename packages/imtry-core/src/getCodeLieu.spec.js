@@ -27,6 +27,12 @@ describe('getCodeLieu', () => {
       expect(e).toEqual(Error(`Could not find station ${hiddenStation}`))
     }
   })
+
+  it('should return "codeLieu" for bouffay', async () => {
+    const codeLieu = await getCodeLieu('bouffer')
+
+    expect(codeLieu).toBe('BOFA')
+  })
 })
 
 function mockArrets() {
@@ -45,5 +51,6 @@ function mockArrets() {
         {"numLigne":"98"}
       ]},
       {"codeLieu":"CRME","libelle":"Crémetterie","distance":null,"ligne":[{"numLigne":"23"}]},
+      {"codeLieu":"BOFA","libelle":"Bouffay","distance":null,"ligne":[{"numLigne":"1"}]},
     ])
 }

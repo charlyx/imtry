@@ -1,5 +1,6 @@
 import { fetchJSON } from './fetchJSON'
 import { formatStationName } from './formatStationName'
+import levenshtein from 'fast-levenshtein'
 
 export async function getCodeLieu(trainStation) {
   const arrets = await fetchJSON(`arrets.json`)
@@ -16,5 +17,6 @@ export async function getCodeLieu(trainStation) {
 }
 
 function byLibelle(expectedLibelle) {
-  return ({ libelle }) => libelle.toLowerCase() === expectedLibelle.toLowerCase()
+  return ({ libelle }) => libelle.toLowerCase() === expectedLibelle.toLowerCase() ||
+                          levenshtein.get(libelle, expectedLibelle, { useCollator: true }) < 3
 }
