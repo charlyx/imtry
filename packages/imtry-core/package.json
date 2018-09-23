@@ -29,6 +29,7 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
+    "fast-levenshtein": "^2.0.6",
     "node-fetch": "^2.2.0"
   }
 }
