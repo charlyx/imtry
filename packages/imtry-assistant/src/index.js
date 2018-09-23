@@ -42,7 +42,7 @@ function ClosestTramNearbyHandler(agent) {
       permissions: ['DEVICE_PRECISE_LOCATION'],
     }))
     agent.add(conv)
-    return
+    return undefined
   }
 
   const { latitude, longitude } = conv.device.location.coordinates
