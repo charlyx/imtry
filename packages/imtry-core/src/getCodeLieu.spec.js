@@ -11,6 +11,12 @@ describe('getCodeLieu', () => {
     expect(codeLieu).toBe('XBON')
   })
 
+  it('should return "codeLieu" for croix bonneau', async () => {
+    const codeLieu = await getCodeLieu('croix bonneau')
+
+    expect(codeLieu).toBe('XBON')
+  })
+
   it('should throw an error saying "Coult not find station 9¾"', async () => {
     expect.assertions(1)
     const hiddenStation = '9¾'
