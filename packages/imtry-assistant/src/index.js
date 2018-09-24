@@ -18,7 +18,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   agent.handleRequest(intentMap)
 })
 
-async function ClosestTramHandler(agent) {
+function ClosestTramHandler(agent) {
   const { station } = agent.parameters
 
   return getClosestTramwayFrom(station)
@@ -29,7 +29,7 @@ async function ClosestTramHandler(agent) {
     })
 }
 
-async function ClosestTramNearbyHandler(agent) {
+function ClosestTramNearbyHandler(agent) {
   const conv = agent.conv()
 
   if (!conv.device.location) {
@@ -38,7 +38,7 @@ async function ClosestTramNearbyHandler(agent) {
       permissions: ['DEVICE_PRECISE_LOCATION'],
     }))
     agent.add(conv)
-    return undefined
+    return
   }
 
   const { latitude, longitude } = conv.device.location.coordinates
