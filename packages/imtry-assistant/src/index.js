@@ -12,18 +12,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   const agent = new WebhookClient({ request, response })
   const intentMap = new Map()
 
-  intentMap.set('ClosestTram', ClosestTramHandler)
-  intentMap.set('GeoLocation', ClosestTramNearbyHandler)
+  intentMap.set('Closest tram from specified station', ClosestTramHandler)
+  intentMap.set('Closest tram from nearest station', ClosestTramNearbyHandler)
 
   agent.handleRequest(intentMap)
 })
 
 function ClosestTramHandler(agent) {
   const { station } = agent.parameters
-
-  if (station === 'nearby') {
-    return ClosestTramNearbyHandler(agent)
-  }
 
   return getClosestTramwayFrom(station)
     .then(makeAgentSayTramwayDepartures(agent))
@@ -42,7 +38,7 @@ function ClosestTramNearbyHandler(agent) {
       permissions: ['DEVICE_PRECISE_LOCATION'],
     }))
     agent.add(conv)
-    return undefined
+    return
   }
 
   const { latitude, longitude } = conv.device.location.coordinates
