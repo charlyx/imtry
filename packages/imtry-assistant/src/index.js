@@ -3,6 +3,9 @@
 const functions = require('firebase-functions')
 const { WebhookClient } = require('dialogflow-fulfillment')
 const { Permission } = require('actions-on-google')
+const PubSub = require('@google-cloud/pubsub')
+const toString = require('lodash/toString')
+const mapValues = require('lodash/mapValues')
 const {
   getClosestTramwayFrom,
   getClosestTramwayNearby,
@@ -51,13 +54,20 @@ function ClosestTramNearbyHandler(agent) {
     })
 }
 
-const makeAgentSayTramwayDepartures = agent => tramways => {
-  const responses = Object.keys(tramways).map(direction => {
-    const temps = tramways[direction]
-    const message = (temps > 0) ? `partira dans ${temps} minutes` : 'va bientôt partir'
+const pubsub = new PubSub({ credentials: require(`${__dirname}/imtry-dev-8c850b80b519.json`) })
 
-    return `Le prochain tramway en direction de ${direction} ${message}`
-  })
+const makeAgentSayTramwayDepartures = agent => {
+  const publisher = pubsub.topic('projects/imtry-dev/topics/departures').publisher()
 
-  responses.forEach(response => agent.add(response))
+  return tramways => {
+    const responses = Object.keys(tramways).map(direction => {
+      const temps = tramways[direction]
+      const message = (temps > 0) ? `partira dans ${temps} minutes` : 'va bientôt partir'
+
+      return `Le prochain tramway en direction de ${direction} ${message}`
+    })
+
+    responses.forEach(response => agent.add(response))
+    return publisher.publish(Buffer.from(''), mapValues(tramways, toString))
+  }
 }

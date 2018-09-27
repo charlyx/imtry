@@ -19,11 +19,13 @@
   },
   "dependencies": {
     "@firebase/app-types": "0.x",
+    "@google-cloud/pubsub": "^0.20.1",
+    "@imtry/core": "^1.2.0",
     "actions-on-google": "^2.3.0",
     "dialogflow-fulfillment": "^0.5.0",
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.0.3",
-    "@imtry/core": "^1.2.0"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "eslint": "^4.12.0",
